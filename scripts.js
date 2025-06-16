@@ -31,7 +31,7 @@ form.addEventListener("submit", function (event) {
   closeModal();
 });
 
-// Evitar cierre si clic dentro del modal
+// Evitar cierre si se hace clic dentro del modal
 document
   .querySelector(".modal-content")
   .addEventListener("click", function (event) {
