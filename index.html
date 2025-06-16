@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Alrededor de los EE.UU." />
+    <meta name="keywords" content="Explorador, EE.UU, alrededor, paisajes" />
+    <meta name="author" content="Marcela Rodriguez" />
+    <title>Alrededor de los EE.UU</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          src="./images/Vector.png"
+          alt="Logo de Alrededor de los EE.UU"
+          class="header__logo"
+        />
+        <img
+          src="./images/Line.png"
+          alt="Linea del encabezado"
+          class="header__line"
+        />
+      </header>
+      <section class="profile">
+        <img
+          src="./images/image.jpg"
+          alt="Foto de perfil de Jacques Cousteau"
+          class="profile__avatar"
+        />
+        <div class="profile__info-container">
+          <h1 id="profileName" class="profile__info">Jacques Cousteau</h1>
+          <p id="profileText" class="profile__explorador">Explorador</p>
+        </div>
+        <img
+          src="./images/Edit_Button.png"
+          alt="Boton para editar"
+          class="profile__button-edit"
+          id="openModal"
+        />
+
+        <img
+          src="./images/Add_Button.png"
+          alt="Boton para agregar"
+          class="profile__button-add"
+        />
+      </section>
+      <section class="elements">
+        <div class="card">
+          <img
+            src="./images/vanois_national.png"
+            alt="Montañas nevadas se reflejadas en un lago"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Valle de Yosemite</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./images/Lago_Louise.png"
+            alt="Vista del Lago Louise rodeado de montañas"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Lago Louise</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./images/Montanas_calvas.png"
+            alt="Atardecer sobre montañas con el sol brillando"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Montañas Calvas</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./images/Latemar.png"
+            alt="Cielo estrellado sobre picos nevados en Latemar"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Latemar</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./images/vanois_national.png"
+            alt="Reflejo de montañas nevadas sobre un lago en Vanois"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Vanois National</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="./images/Lago_di_Braies.png"
+            alt="Botes de madera junto a un muelle en el Lago di Braies, rodeado de montañas"
+            class="card__image"
+          />
+          <div class="card__description">
+            <h2 class="card__title">Lago di Braies</h2>
+            <img
+              src="./images/Vector_Corazon.png"
+              alt="Icono de Corazón"
+              class="card__like"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- <button id="openModal">Editar perfil</button> -->
+
+      <div id="modal" class="modal">
+        <div class="modal__content">
+          <span class="modal__close">&times;</span>
+          <h2 class="modal__title">Editar perfil</h2>
+          <form class="modal__form">
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="modal__input"
+              id="modalInputName"
+            />
+            <input
+              type="text"
+              placeholder="Acerca de mi"
+              class="modal__input--text"
+              id="modalInputText"
+            />
+            <button type="submit" class="modal__submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>&copy; 2025 Around The U.S</p>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+.modal {
+  display: none; /*esta oculto por defecto, hasta que se muestre con JS*/
+  position: fixed; /*Se fija a la pantalla*/
+  z-index: 1; /*asegura que el elemento aparezca por encima de todo lo demás*/
+  left: 0; /*el modal empieza desde el borde izquierdo de la pantalla*/
+  top: 0; /*el modal empieza desde el borde superior de la pantalla*/
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /*0.5 es el 50% de transparencia, se ve el contenido de atras per oscurecido*/
+}
+
+.modal__content {
+  background-color: white;
+  margin: 10% auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 430px;
+  position: relative;
+}
+
+.modal__title {
+  margin: 0;
+  padding: 34px 35px 50px 35px;
+  font-weight: 900;
+  color: #000000;
+}
+
+.modal__close {
+  position: absolute;
+  right: -27px;
+  top: -35px;
+  font-size: 40px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+}
+
+.modal__form {
+  padding: 0 36px 36px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input,
+.modal__input--text {
+  margin-bottom: 30px;
+  padding: 0 0 13px 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
+  background: transparent;
+  outline: none;
+}
+
+.modal__input--text:focus {
+  border-bottom-color: #000000;
+}
+
+.modal__input::placeholder,
+.modal__input--text::placeholder {
+  color: #c4c4c4;
+}
+
+.modal__submit {
+  padding: 14px 0;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
