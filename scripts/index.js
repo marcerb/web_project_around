@@ -33,7 +33,7 @@ form.addEventListener("submit", function (event) {
 
 // Evitar cierre si se hace clic dentro del modal
 document
-  .querySelector(".modal-content")
+  .querySelector(".modal__content")
   .addEventListener("click", function (event) {
     event.stopPropagation();
   });
