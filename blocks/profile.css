@@ -58,8 +58,13 @@
 
 @media screen and (max-width: 768px) {
   .profile {
+    flex-direction: column;
     padding: 0 19px;
     gap: 26px;
+  }
+
+  .profile__info-container {
+    order: 2; /*la clase*/
   }
 
   .profile__info {
@@ -76,11 +81,14 @@
     width: 18px;
     height: 18px;
     margin-left: 10px;
+    order: 3; /**/
   }
 
   .profile__button-add {
-    width: 282px;
+    width: 250px;
     height: 50px;
+    order: 4; /**/
+    margin: 0;
   }
 }
 
@@ -116,7 +124,7 @@
 
   .profile__button-add {
     order: 4;
-    width: 282px;
+    width: 180px;
     height: 50px;
     margin: 0;
   }
