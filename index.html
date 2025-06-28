@@ -44,105 +44,10 @@
           src="./images/Add_Button.png"
           alt="Boton para agregar"
           class="profile__button-add"
+          id="addModal"
         />
       </section>
-      <section class="elements">
-        <div class="card">
-          <img
-            src="./images/vanois_national.png"
-            alt="Montañas nevadas se reflejadas en un lago"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="./images/Lago_Louise.png"
-            alt="Vista del Lago Louise rodeado de montañas"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Lago Louise</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="./images/Montanas_calvas.png"
-            alt="Atardecer sobre montañas con el sol brillando"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Montañas Calvas</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="./images/Latemar.png"
-            alt="Cielo estrellado sobre picos nevados en Latemar"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Latemar</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="./images/vanois_national.png"
-            alt="Reflejo de montañas nevadas sobre un lago en Vanois"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Vanois National</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            src="./images/Lago_di_Braies.png"
-            alt="Botes de madera junto a un muelle en el Lago di Braies, rodeado de montañas"
-            class="card__image"
-          />
-          <div class="card__description">
-            <h2 class="card__title">Lago di Braies</h2>
-            <img
-              src="./images/Vector_Corazon.png"
-              alt="Icono de Corazón"
-              class="card__like"
-            />
-          </div>
-        </div>
-      </section>
+      <section class="elements"></section>
       <div id="modal" class="modal">
         <div class="modal__content">
           <span class="modal__close">&times;</span>
@@ -164,9 +69,39 @@
           </form>
         </div>
       </div>
+
+      <div id="modal-add" class="modal modal-add">
+        <div class="modal__content">
+          <span class="modal__close">&times;</span>
+          <h2 class="modal__title">Nuevo Lugar</h2>
+          <form class="modal__form">
+            <input
+              type="text"
+              placeholder="Titulo"
+              class="modal__input"
+              id="modalInputTitle"
+            />
+            <input
+              type="text"
+              placeholder="Enlace a la imagen"
+              class="modal__input modal__input-url"
+              id="modalInputUrl"
+            />
+            <button type="submit" class="modal__submit">Crear</button>
+          </form>
+        </div>
+      </div>
+
       <footer class="footer">
         <p>&copy; 2025 Around The U.S</p>
       </footer>
+    </div>
+    <div class="popup" id="imagePopup">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <img class="popup-image" id="popupImage" src="" alt="" />
+        <p class="popup-title" id="popupTitle"></p>
+      </div>
     </div>
     <script src="./scripts/index.js"></script>
   </body>
