@@ -146,3 +146,23 @@
     padding: 14px 0;
   }
 }
+
+/* Estilo para inputs con error */
+.modal__input_type_error {
+  border-bottom-color: #ff0000;
+}
+
+/* Estilo para mensajes de error */
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: -25px;
+  margin-bottom: 13px;
+  min-height: 12px;
+}
+
+/* Estilo para botón deshabilitado */
+.modal__submit_disabled {
+  background-color: #e5e5e5;
+  color: #b6b6b6;
+}
