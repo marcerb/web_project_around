@@ -1,6 +1,9 @@
-import { Card } from "./Card.js";
+import Card from "./Card.js";
+import { Section } from "./Section.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
 import { FormValidator } from "./FormValidator.js";
-import { openModal, closeModal } from "./utils.js";
 
 // Configuración de validación
 const validationConfig = {
@@ -11,96 +14,127 @@ const validationConfig = {
   errorClass: "modal__error_visible",
 };
 
-// DOM Elements
-const modal = document.getElementById("modal");
-const openButton = document.getElementById("openModal");
-const closeButton = modal.querySelector(".modal__close");
-const form = modal.querySelector(".modal__form");
-const inputName = document.getElementById("modalInputName");
-const inputText = document.getElementById("modalInputText");
-const submitButton = document.getElementById("modalSubmit");
-const nameResult = document.getElementById("profileName");
-const textResult = document.getElementById("profileText");
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+  },
+  { name: "Latemar", link: "https://code.s3.yandex.net/web-code/latemar.jpg" },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+  },
+];
 
-const modalAdd = document.getElementById("modal-add");
-const addOpenButton = document.getElementById("addModal");
-const addCloseButton = modalAdd.querySelector(".modal__close");
-const addForm = modalAdd.querySelector(".modal__form");
-const inputTitle = document.getElementById("modalInputTitle");
-const inputUrl = document.getElementById("modalInputUrl");
+// Instancia de UserInfo
+const userInfo = new UserInfo({
+  nameSelector: "#profileName",
+  jobSelector: "#profileText",
+});
 
-const popup = document.getElementById("imagePopup");
-const popupImage = document.getElementById("popupImage");
-const popupTitle = document.getElementById("popupTitle");
-const closePopup = document.querySelector(".popup-close");
+// Instancia de PopupWithImage
+const imagePopup = new PopupWithImage("#imagePopup");
+imagePopup.setEventListeners();
 
-const elementsContainer = document.querySelector(".elements");
-const cardTemplateSelector = "#card-template";
-
-// Instancias de validación
-const editProfileValidator = new FormValidator(validationConfig, form);
-const addCardValidator = new FormValidator(validationConfig, addForm);
-editProfileValidator.enableValidation();
-addCardValidator.enableValidation();
-
-// Crear tarjeta con clase Card
-function createCard({ name, link }) {
-  const card = new Card({ name, link }, cardTemplateSelector);
+// Función para crear tarjetas
+function createCard(data) {
+  const card = new Card(data, "#card-template", (name, link) => {
+    imagePopup.open(name, link);
+  });
   return card.generateCard();
 }
 
-// Tarjetas iniciales
-const initialCards = [
-  { name: "Valle de Yosemite", link: "./images/vanois_national.png" },
-  { name: "Lago Louise", link: "./images/Lago_Louise.png" },
-  { name: "Montañas Calvas", link: "./images/Montanas_calvas.png" },
-  { name: "Latemar", link: "./images/Latemar.png" },
-  { name: "Vanois National", link: "./images/vanois_national.png" },
-  { name: "Lago di Braies", link: "./images/Lago_di_Braies.png" },
-];
+// Instancia de Section
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const cardElement = createCard(data);
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".elements"
+);
 
-initialCards.forEach((cardData) => {
-  const cardElement = createCard(cardData);
-  elementsContainer.appendChild(cardElement);
+// Renderizar tarjetas iniciales
+cardSection.renderItems();
+
+// Crear validadores para cada formulario
+const editFormValidator = new FormValidator(
+  validationConfig,
+  document.querySelector("#modal .modal__form")
+);
+
+const addFormValidator = new FormValidator(
+  validationConfig,
+  document.querySelector("#modal-add .modal__form")
+);
+
+// Habilitar validación
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
+// Crear popup para editar perfil
+const editProfilePopup = new PopupWithForm("#modal", (data) => {
+  userInfo.setUserInfo({
+    name: data.name,
+    job: data.about,
+  });
+  editProfilePopup.close();
 });
+editProfilePopup.setEventListeners();
 
-// Modal editar perfil
-openButton.addEventListener("click", () => {
-  inputName.value = nameResult.textContent;
-  inputText.value = textResult.textContent;
-  openModal(modal);
+// Crear popup para agregar lugar
+const addPlacePopup = new PopupWithForm("#modal-add", (data) => {
+  const cardElement = createCard({ name: data.title, link: data.link });
+  cardSection.addItem(cardElement);
+  addPlacePopup.close();
 });
+addPlacePopup.setEventListeners();
 
-closeButton.addEventListener("click", () => closeModal(modal));
+// Event listeners para abrir modales
+document.addEventListener("DOMContentLoaded", () => {
+  // Botón editar perfil
+  const editButton = document.querySelector("#openModal");
+  if (editButton) {
+    editButton.addEventListener("click", () => {
+      // Pre-llenar formulario
+      const currentUserInfo = userInfo.getUserInfo();
+      const nameInput = document.querySelector("#modalInputName");
+      const aboutInput = document.querySelector("#modalInputText");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  nameResult.textContent = inputName.value;
-  textResult.textContent = inputText.value;
-  closeModal(modal);
-});
+      if (nameInput) nameInput.value = currentUserInfo.name;
+      if (aboutInput) aboutInput.value = currentUserInfo.job;
 
-// Modal agregar tarjeta
-addOpenButton.addEventListener("click", () => {
-  addForm.reset();
-  openModal(modalAdd);
-});
+      // Resetear validación antes de abrir
+      editFormValidator.resetValidation();
+      editProfilePopup.open();
 
-addCloseButton.addEventListener("click", () => closeModal(modalAdd));
+      setTimeout(() => {
+        editFormValidator._toggleButtonState();
+      }, 0);
+    });
+  }
 
-addForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = inputTitle.value;
-  const link = inputUrl.value;
-  const cardElement = createCard({ name, link });
-  elementsContainer.prepend(cardElement);
-  closeModal(modalAdd);
-});
-
-// Cerrar imagen emergente
-closePopup.addEventListener("click", () => closeModal(popup));
-window.addEventListener("click", function (event) {
-  if (event.target === modal) closeModal(modal);
-  if (event.target === modalAdd) closeModal(modalAdd);
-  if (event.target === popup) closeModal(popup);
+  // Botón agregar lugar
+  const addButton = document.querySelector("#addModal");
+  if (addButton) {
+    addButton.addEventListener("click", () => {
+      // Resetear validación antes de abrir
+      addFormValidator.resetValidation();
+      addPlacePopup.open();
+    });
+  }
 });

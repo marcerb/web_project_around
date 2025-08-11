@@ -90,6 +90,42 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* === VALIDACIÓN === */
+
+/* Inputs con error */
+.modal__input_type_error {
+  border-bottom-color: #ff0000;
+}
+
+/* Mensajes de error */
+.modal__error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: -25px;
+  margin-bottom: 13px;
+  min-height: 12px;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar mensajes de error */
+.modal__error_visible {
+  opacity: 1;
+}
+
+/* Botón deshabilitado */
+.modal__submit_disabled {
+  background-color: #e5e5e5 !important;
+  color: #b6b6b6 !important;
+  cursor: not-allowed;
+}
+
+.modal__submit_disabled:hover {
+  background-color: #e5e5e5 !important;
+}
+
+/* === RESPONSIVE === */
+
 @media screen and (max-width: 768px) {
   .modal__content {
     width: 95%;
@@ -146,24 +182,4 @@
     font-size: 14px;
     padding: 14px 0;
   }
-}
-
-/* Estilo para inputs con error */
-.modal__input_type_error {
-  border-bottom-color: #ff0000;
-}
-
-/* Estilo para mensajes de error */
-.modal__error {
-  color: #ff0000;
-  font-size: 12px;
-  margin-top: -25px;
-  margin-bottom: 13px;
-  min-height: 12px;
-}
-
-/* Estilo para botón deshabilitado */
-.modal__submit_disabled {
-  background-color: #e5e5e5;
-  color: #b6b6b6;
 }

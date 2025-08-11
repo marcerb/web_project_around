@@ -1,4 +1,4 @@
-// Clse para validar formularios
+// Clase para validar formularios
 export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
