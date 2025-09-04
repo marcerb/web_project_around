@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export default class Popup {
+=======
+export class Popup {
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
   constructor(popupSelector) {
     // Encuentra el elemento popup en el DOM
     this._popupElement = document.querySelector(popupSelector);
@@ -11,7 +15,11 @@ export default class Popup {
     // Verifica que el elemento existe
     if (!this._popupElement) return;
 
+<<<<<<< HEAD
     // Aplica estilos según el tipo (popup o modal)
+=======
+    // Aplica estilos según el tipo de popup (popup o modal)
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
     if (this._popupElement.classList.contains("popup")) {
       this._popupElement.classList.add("popup_opened");
     } else {
@@ -49,7 +57,11 @@ export default class Popup {
   }
 
   setEventListeners() {
+<<<<<<< HEAD
     // Verifica que el elemento exist
+=======
+    // Verifica que el elemento exists
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
     if (!this._popupElement) return;
 
     // Busca y configura el botón de cierre

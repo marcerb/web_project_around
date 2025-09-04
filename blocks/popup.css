@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* ---------- Popup base (vista previa, formularios, confirmación) ---------- */
+=======
+/* Popup para vista previa de imagen */
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
 .popup {
   position: fixed;
   top: 0;
@@ -29,7 +33,10 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 /* ---------- Vista previa de imagen ---------- */
+=======
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
 .popup-image {
   max-width: 100%;
   max-height: 85vh;
@@ -49,7 +56,10 @@
   align-self: flex-start;
 }
 
+<<<<<<< HEAD
 /* ---------- Botón de cierre ---------- */
+=======
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
 .popup-close {
   position: absolute;
   top: -40px;
@@ -72,6 +82,7 @@
   opacity: 0.6;
 }
 
+<<<<<<< HEAD
 /* ---------- Formularios en Popups ---------- */
 .form {
   display: flex;
@@ -130,6 +141,9 @@
 }
 
 /* ---------- Responsive ---------- */
+=======
+/* Responsive */
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
 @media screen and (max-width: 768px) {
   .popup-content {
     max-width: 95vw;

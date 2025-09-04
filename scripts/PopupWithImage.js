@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import Popup from "./Popup.js";
 
 export default class PopupWithImage extends Popup {
+=======
+import { Popup } from "./Popup.js";
+
+export class PopupWithImage extends Popup {
+>>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
   constructor(popupSelector) {
     // Prepara un popup para mostrar imágenes grandes
     super(popupSelector);
