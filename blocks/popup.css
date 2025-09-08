@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* ---------- Popup base (vista previa, formularios, confirmación) ---------- */
-=======
-/* Popup para vista previa de imagen */
->>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
+/* Popup base (vista previa, formularios, confirmación) */
 .popup {
   position: fixed;
   top: 0;
@@ -33,10 +29,7 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
-/* ---------- Vista previa de imagen ---------- */
-=======
->>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
+/* Vista previa de imagen */
 .popup-image {
   max-width: 100%;
   max-height: 85vh;
@@ -56,10 +49,7 @@
   align-self: flex-start;
 }
 
-<<<<<<< HEAD
-/* ---------- Botón de cierre ---------- */
-=======
->>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
+/* Botón de cierre */
 .popup-close {
   position: absolute;
   top: -40px;
@@ -82,8 +72,7 @@
   opacity: 0.6;
 }
 
-<<<<<<< HEAD
-/* ---------- Formularios en Popups ---------- */
+/* Formularios en Popups */
 .form {
   display: flex;
   flex-direction: column;
@@ -133,17 +122,13 @@
   background-color: #0056b3;
 }
 
-/* Estado deshabilitado (para paso 11 - carga) */
 .form__submit:disabled,
 .popup-save:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* ---------- Responsive ---------- */
-=======
-/* Responsive */
->>>>>>> 33cec8ab6844eede6d70fa5d2a18502b48456505
+/* Responsivo */
 @media screen and (max-width: 768px) {
   .popup-content {
     max-width: 95vw;
